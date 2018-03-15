@@ -6,7 +6,7 @@ import { HttpClientModule, HttpClient, HttpHandler } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { InmobiliariaComponent } from './inmobiliaria/inmobiliaria.component';
 import { DetalleComponent } from './inmobiliaria/detalle/detalle.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {FilterCasas} from './pipes/filter-casas.pipes';
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import {FilterCasas} from './pipes/filter-casas.pipes';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [HttpClient,TodosService],
   bootstrap: [AppComponent]

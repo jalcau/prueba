@@ -3,16 +3,19 @@ import { NgModel } from '@angular/forms';
 import {TodosService} from '../providers/todo.service'
 import {Casa} from '../model/casa';
 import { Servicio } from '../model/servicio';
+
 @Component({
   selector: 'app-inmobiliaria',
   templateUrl: './inmobiliaria.component.html',
   styleUrls: ['./inmobiliaria.component.scss']
 })
 export class InmobiliariaComponent implements OnInit {
-  searchText:string;
+  searchText : string;
+  modo: number;
   todos : Casa[];
   nombre:string;
   casaSelec: Casa;
+  
   constructor( public todoService:TodosService ) {
     console.log('TodosComponent constructor');
     this.todos = [];
@@ -50,6 +53,7 @@ export class InmobiliariaComponent implements OnInit {
         todo.direccion=el.direccion;
         todo.servicios=el.servicios;
         this.todos.push(todo);
+        this.casaSelec=this.todos[0];
       });
 
         

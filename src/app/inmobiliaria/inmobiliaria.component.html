@@ -5,13 +5,14 @@
       
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1"> <b>Filtro</b></span>
-        <input  type="text" class="form-control" placeholder="nombre o direccion" aria-describedby="basic-addon1">
-        <span class="input-group-addon glyphicon glyphicon-search"></span>
+        <input type="search" [(ngModel)]="searchText" class="form-control input-lg"placeholder="nombre o direccion"> <span class="input-group-addon glyphicon glyphicon-search"></span>
+       
       </div>
-      <div class="checkbox">
-          <label><input type="checkbox" value="">Alquiler</label>
-          <label><input type="checkbox" value="">Venta</label>
-        </div>
+      
+          <input type="radio" [(ngModel)]="modo" name="modo" value="0">Alquiler
+          <input type="radio" [(ngModel)]="modo"  name="modo" value="1">Venta
+          <input type="radio" [(ngModel)]="modo"  name="modo"value="2">Todos
+        
      
      
           <div class="checkbox">
@@ -36,7 +37,7 @@
                       <div class="panel-body">
                          
                        
-                          <div *ngFor="let casa of todos" class="col-sm-6 col-md-6" (click)="seleccionarCasa(casa)" >
+                          <div *ngFor="let casa of todos| filterCasa : searchText: modo" class="col-sm-6 col-md-6" (click)="seleccionarCasa(casa)" >
                 
                             <div class="thumbnail">
                                
