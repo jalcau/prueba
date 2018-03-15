@@ -8,8 +8,13 @@
         <h3>{{casa.nombre}}   <p>{{casa.precio}}</p></h3>
            <p>{{casa.direccion}}</p>
            <p>Habitaciones: {{casa.habitaciones}}</p>
+           <label for="">Servicios</label>
+           <ul>
            
-         
-          
+           <li *ngFor="let servicio of casa.servicios">
+            <input type="checkbox" [checked]="servicio.disponible"> {{servicio.nombre}}
+        
+          </li>
+        </ul>
     </div>
  </div>

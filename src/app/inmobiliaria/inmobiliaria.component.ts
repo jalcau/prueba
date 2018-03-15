@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import {TodosService} from '../providers/todo.service'
 import {Casa} from '../model/casa';
+import { Servicio } from '../model/servicio';
 @Component({
   selector: 'app-inmobiliaria',
   templateUrl: './inmobiliaria.component.html',
@@ -18,6 +19,7 @@ export class InmobiliariaComponent implements OnInit {
 }
   ngOnInit() {
     this.cargarTareas();
+    this.casaSelec = this.todos[0];
   }
 
   cargarTareas(){
@@ -36,7 +38,8 @@ export class InmobiliariaComponent implements OnInit {
   mapeo( result : any ){
 
     let todo:Casa;
-    let i=0;
+
+    //let i=0;
     result.forEach(el => {
       
         todo = new Casa( el.nombre);
@@ -46,9 +49,14 @@ export class InmobiliariaComponent implements OnInit {
         todo.foto=el.foto;
         todo.direccion=el.direccion;
         todo.servicios=el.servicios;
-       // todo.servicios[0].disponible=el.servicios.disponible;
         this.todos.push(todo);
-    });
+      });
+
+        
+      // todo.servicios=el.servicios;
+       // todo.servicios[0].disponible=el.servicios.disponible;
+        
+  
 
   }
 
